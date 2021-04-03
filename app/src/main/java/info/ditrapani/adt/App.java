@@ -20,27 +20,45 @@ record Cons(int head, Lst tail) implements Lst {
   }
 }
 
+record Tup(int a, int b) {}
 
 public class App {
+  public static void main(String[] args) {
+    Lst list = new Cons(3, new Cons(2, new Nil()));
+    System.out.println(list.toString());
 
-    public static void main(String[] args) {
-        var list = new Cons(3, new Cons(2, new Nil()));
-        System.out.println(list.toString());
+    Object obj = "hello";
 
-        Object obj = "hello";
+    var tup = new Tup(1, 5);
+    System.out.println(tup.a());
 
-        if (obj instanceof String s) {
-          System.out.println("String of length " + s.length());
-        }
-
-        /*
-        var message = "";
-        if (list instanceof Cons cons) {
-          message = "I'm a cons with " + cons.head;
-        } else if (list instanceof Nil nil) {
-          message = "I'm a Nil";
-        }
-        System.out.println(message);
-        */
+    var message = "";
+    if (list instanceof Cons cons) {
+      message = "I'm a cons with " + cons.head();
+    } else if (list instanceof Nil nil) {
+      message = "I'm a Nil";
     }
+    System.out.println(message);
+  }
+}
+
+sealed interface TailRec<T> {
+  default public T eval() {
+    var tailRec = this;
+    while (true) {
+      if (tailRec instanceof Suspend<T> suspend) {
+        tailRec = suspend.step().apply();
+      } else if (tailRec instanceof Return<T> ret) {
+        return ret.value();
+      }
+    }
+  }
+}
+
+record Suspend<T>(Step<T> step) implements TailRec<T> {}
+
+record Return<T>(T value) implements TailRec<T> {}
+
+interface Step<T> {
+  public TailRec<T> apply();
 }
