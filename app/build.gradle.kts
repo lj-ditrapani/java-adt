@@ -2,18 +2,6 @@ plugins {
     application
 }
 
-java {
-    toolchain {
-        languageVersion.set(JavaLanguageVersion.of(16))
-    }
-}
-
-tasks.compileJava {
-    options.release.set(16)
-    sourceCompatibility = "16"
-    targetCompatibility = "16"
-}
-
 repositories {
     // Use JCenter for resolving dependencies.
     jcenter()
@@ -27,4 +15,14 @@ dependencies {
 application {
     // Define the main class for the application.
     mainClass.set("info.ditrapani.adt.App")
+    applicationDefaultJvmArgs = listOf("--enable-preview")
+}
+
+tasks.withType<JavaCompile> {
+	val compilerArgs = options.compilerArgs
+	compilerArgs.add("--enable-preview")
+}
+
+tasks.withType<Test>().all {
+    jvmArgs("--enable-preview")
 }
