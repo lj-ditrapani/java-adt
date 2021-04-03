@@ -31,14 +31,16 @@ public class App {
 
     var tup = new Tup(1, 5);
     System.out.println(tup.a());
+    System.out.println(listToMessage(list));
+  }
 
-    var message = "";
-    if (list instanceof Cons cons) {
-      message = "I'm a cons with " + cons.head();
-    } else if (list instanceof Nil nil) {
-      message = "I'm a Nil";
-    }
-    System.out.println(message);
+  public static String listToMessage(Lst list) {
+    if (list instanceof Cons cons)
+      return "I'm a cons with " + cons.head();
+    else if (list instanceof Nil nil)
+      return "I'm a Nil";
+    else
+      throw new RuntimeException("Java needs exhaustive type checking for sealed classes!");
   }
 }
 
