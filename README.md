@@ -1,8 +1,8 @@
 Algebraic Data Types in Java 16
 ===============================
 
-I've mostly been working in staticly typed languages with reasonable type systems for the past 5 years; scala, kotlin, typescript, rust.
-I've activly avoided Java.
+I've mostly been working in statically typed languages with reasonable type systems for the past 5 years; scala, kotlin, typescript, rust.
+I've actively avoided Java.
 
 However, since I saw Jake Wharton's talk on Java 19 <https://www.youtube.com/watch?v=te3OU9fxC8U>, I've been paying attention to Java major releases.
 
@@ -11,7 +11,7 @@ I decided to look into Java 16 to see if I can use algebraic data types (ADTs), 
 
 Looking at the features list of Java 16
 <http://openjdk.java.net/projects/jdk/16/>
-and the features that that preceeded it in Java 14 & 15
+and the features that preceded it in Java 14 & 15
 <https://en.wikipedia.org/wiki/Java_version_history>,
 we can see that Java 16 has:
 
