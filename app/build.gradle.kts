@@ -14,9 +14,13 @@ plugins {
 java {
     toolchain {
         languageVersion.set(JavaLanguageVersion.of(16))
-        // sourceCompatibility = 16
-        // targetCompatibility = 16
     }
+}
+
+tasks.compileJava {
+    options.release.set(16)
+    sourceCompatibility = "16"
+    targetCompatibility = "16"
 }
 
 repositories {
