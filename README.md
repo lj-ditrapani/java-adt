@@ -26,7 +26,7 @@ From the JEP 397 description:
 
 > Sealing a class restricts its subclasses. User code can inspect an instance of a sealed class with an if-else chain of instanceof tests, one test per subclass; **no catch-all else clause is needed**. For example, the following code looks for the three permitted subclasses of Shape:
 
-```
+```java
 Shape rotate(Shape shape, double angle) {
     if (shape instanceof Circle) return shape;
     else if (shape instanceof Rectangle) return shape.rotate(angle);
@@ -46,4 +46,7 @@ It looks like we won't have ADTs until the below JEPs are implemented.
 Looking forward to the day we can use ADTs in Java.  Then I can come back to this project and finish what I started.
 Until then, I'll stick to my usual languages.
 On the up side, it was fun to implement a `TailRec` sealed interface for stack-safe recursion in Java.
-See app/src/main/java/info/ditrapani/adt/App.java and app/src/test/java/info/ditrapani/adt/TailRecTest.java.
+See
+[app/src/main/java/info/ditrapani/adt/App.java](app/src/main/java/info/ditrapani/adt/App.java)
+and
+[app/src/test/java/info/ditrapani/adt/TailRecTest.java](app/src/test/java/info/ditrapani/adt/TailRecTest.java).
