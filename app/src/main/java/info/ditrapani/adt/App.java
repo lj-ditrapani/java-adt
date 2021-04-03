@@ -26,5 +26,21 @@ public class App {
     public static void main(String[] args) {
         var list = new Cons(3, new Cons(2, new Nil()));
         System.out.println(list.toString());
+
+        Object obj = "hello";
+
+        if (obj instanceof String s) {
+          System.out.println("String of length " + s.length());
+        }
+
+        /*
+        var message = "";
+        if (list instanceof Cons cons) {
+          message = "I'm a cons with " + cons.head;
+        } else if (list instanceof Nil nil) {
+          message = "I'm a Nil";
+        }
+        System.out.println(message);
+        */
     }
 }
