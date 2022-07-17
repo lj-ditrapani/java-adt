@@ -47,6 +47,12 @@ With java 17, we get the below implemented.  So this now works.
 - JEP 406: Pattern Matching for switch (Preview)
   <https://openjdk.java.net/jeps/406>
 
+App.listToMessage pattern matches on the list type Lst and returns a string representation of the Cons or Nil.
+If you delete a case in the switch statement, the java compiler will detect that the switch is non-exhaustive and fail to compile with an error:
+
+    pp.java:38: error: the switch expression does not cover all possible input values
+        return switch(list) {
+
 I implemented a `TailRec` sealed interface for stack-safe recursion in Java inspired by this implementation
 <https://freecontent.manning.com/stack-safe-recursion-in-java/>.
 See
