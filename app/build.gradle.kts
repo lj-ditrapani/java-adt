@@ -1,5 +1,6 @@
 plugins {
     application
+    id("com.github.ben-manes.versions") version "0.39.0"
 }
 
 repositories {
@@ -9,7 +10,7 @@ repositories {
 
 dependencies {
     // Use JUnit test framework.
-    testImplementation("junit:junit:4.13")
+    testImplementation("junit:junit:4.13.2")
 }
 
 application {

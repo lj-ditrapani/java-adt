@@ -35,12 +35,10 @@ public class App {
   }
 
   public static String listToMessage(Lst list) {
-    if (list instanceof Cons cons)
-      return "I'm a cons with " + cons.head();
-    else if (list instanceof Nil nil)
-      return "I'm a Nil";
-    else
-      throw new RuntimeException("Java needs exhaustive type checking for sealed classes!");
+    return switch(list) {
+      case Cons cons -> "I'm a cons with " + cons.head();
+      case Nil nil -> "I'm a Nil";
+    };
   }
 }
 
