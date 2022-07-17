@@ -1,5 +1,10 @@
-Algebraic Data Types in Java 16
+Algebraic Data Types in Java 17
 ===============================
+
+
+UPDATE: workes with Java 17!
+----------------------------
+
 
 I've mostly been working in statically typed languages with reasonable type systems for the past 5 years; scala, kotlin, typescript, rust.
 I've actively avoided Java.
@@ -35,19 +40,23 @@ Shape rotate(Shape shape, double angle) {
 }
 ```
 
-Unfortunately, the above is not implemented.  The compiler still does not do exhaustiveness checking.
-It looks like we won't have ADTs until the below JEPs are implemented.
+With java 17, we get the below implemented.  So this now works.
 
 - JEP 405: Record Patterns & Array Patterns (Preview)
   <https://openjdk.java.net/jeps/405>
 - JEP 406: Pattern Matching for switch (Preview)
   <https://openjdk.java.net/jeps/406>
 
-Looking forward to the day we can use ADTs in Java.  Then I can come back to this project and finish what I started.
-Until then, I'll stick to my usual languages.
-On the up side, it was fun to implement a `TailRec` sealed interface for stack-safe recursion in Java inspired by this implementation
+I implemented a `TailRec` sealed interface for stack-safe recursion in Java inspired by this implementation
 <https://freecontent.manning.com/stack-safe-recursion-in-java/>.
 See
 [app/src/main/java/info/ditrapani/adt/App.java](app/src/main/java/info/ditrapani/adt/App.java)
 and
 [app/src/test/java/info/ditrapani/adt/TailRecTest.java](app/src/test/java/info/ditrapani/adt/TailRecTest.java).
+
+
+Develop
+-------
+
+    ./gradlew run
+    ./gradlew test
